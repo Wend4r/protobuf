@@ -253,6 +253,10 @@ template <size_t align>
 #endif
 void AlignFail(uintptr_t address) {
   GOOGLE_LOG(FATAL) << "Unaligned (" << align << ") access at " << address;
+#ifndef _MSC_VER
+  // GOOGLE_LOG(FATAL) does not return, but GCC cannot see it
+  __builtin_unreachable();
+#endif
 }
 
 extern template void AlignFail<4>(uintptr_t);
