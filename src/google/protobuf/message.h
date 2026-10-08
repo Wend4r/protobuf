@@ -1064,7 +1064,7 @@ class PROTOBUF_EXPORT Reflection final {
   friend class internal::MapFieldPrinterHelper;
 
   Reflection(const Descriptor* descriptor,
-             const internal::ReflectionSchema& schema,
+             const internal::ReflectionSchema& reflection_schema,
              const DescriptorPool* pool, MessageFactory* factory);
 
   // Special version for specialized implementations of string.  We can't
